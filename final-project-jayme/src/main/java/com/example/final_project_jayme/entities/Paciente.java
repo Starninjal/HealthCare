@@ -7,7 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +31,15 @@ public class Paciente {
     private Date dtNascimento;
 
     @OneToMany(mappedBy = "paciente")
-    private List<Consulta> consultas; // Use 'consultas' for plural consistency
+    private List<Consulta> consultas; 
+
+    @OneToOne
+    private Prontuario prontuario;
+
+    @ManyToMany
+    private Medicamento medicamento;
+
+    @OneToOne
+    private Contato contato;
 
 }
