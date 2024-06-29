@@ -6,7 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,8 @@ public class Prontuario {
     private Date dtAlta;
     private Date dtNascimento;
     private String convenio;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn (name = "paciente_id")
     private Paciente paciente;
 
 }

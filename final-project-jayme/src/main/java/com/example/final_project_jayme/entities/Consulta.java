@@ -26,8 +26,8 @@ public class Consulta {
     private Long id;
     private Date dataConsulta;
     private LocalTime horaConsulta;
-    @ManyToOne 
+    @ManyToOne
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
-    
+
 }
